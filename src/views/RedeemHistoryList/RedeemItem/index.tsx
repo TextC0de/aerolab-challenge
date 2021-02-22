@@ -23,7 +23,9 @@ const RedeemItem: React.FC<Props> = ({ redeem }) => {
             </RedeemImage>
             <RedeemDetails>
                 <RedeemName>{redeem.name}</RedeemName>
-                <RedeemDate>Fecha: {parseDate(redeem.createDate)}</RedeemDate>
+                <RedeemDate>
+                    <strong>Date:</strong> {parseDate(redeem.createDate)}
+                </RedeemDate>
                 <RedeemCost>
                     <IconCoin />
                     {redeem.cost}
