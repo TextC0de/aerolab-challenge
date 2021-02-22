@@ -1,0 +1,10 @@
+.next
+.vscode
+.eslintrc
+.stylelintrc
+coverage
+node_modules
+public
+package.json
+package-lock.json
+resources

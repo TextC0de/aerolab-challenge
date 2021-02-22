@@ -1,0 +1,51 @@
+{
+  "name": "aerolab-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@mdi/js": "^5.9.55",
+    "@mdi/react": "^1.4.0",
+    "@next/bundle-analyzer": "^10.0.7",
+    "@types/node": "^14.14.31",
+    "@types/react-toast-notifications": "^2.4.0",
+    "@types/styled-components": "^5.1.7",
+    "axios": "^0.21.1",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
+    "next": "^10.0.7",
+    "next-compose-plugins": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-dropdown": "^1.9.2",
+    "react-is": "^17.0.1",
+    "react-toast-notifications": "^2.4.3",
+    "styled-components": "^5.2.1",
+    "typescript": "^4.1.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "prettier-plugin-sorted": "^2.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "analyze": "ANALYZE=true next build",
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "lint:fix": "eslint ./ --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

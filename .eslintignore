@@ -1,0 +1,8 @@
+next.config.js
+next-env.d.ts
+backend
+coverage
+cypress
+.eslintrc.js
+node_modules
+old
