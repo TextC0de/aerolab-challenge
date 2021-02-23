@@ -30,6 +30,6 @@ module.exports = withPlugins([
         NEXT_PUBLIC_ANALYITICS_ID: isDev ? '' : ''
     },
     images: {
-        domains: ['textcoe.me']
+        domains: ['textcode.me']
     }
 })
