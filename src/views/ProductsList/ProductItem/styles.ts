@@ -13,7 +13,7 @@ export const ProductItemDetails = styled.div`
         border-radius: 5px;
         width: 100%;
 
-        @media (min-width: ${breakpoints.md}px) {
+        @media (min-width: ${breakpoints.lg}px) {
             display: none;
         }
     }
@@ -40,7 +40,7 @@ export const RedeemWrapper = styled(Flex)`
     transition: 0.3s ease-in-out;
     display: none;
 
-    @media (min-width: ${breakpoints.md}px) {
+    @media (min-width: ${breakpoints.lg}px) {
         display: flex;
     }
 `;
