@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import React from 'react';
+
 import { Product } from '@src/api/types';
 import IconCoin from '@src/components/icons/Coin';
 import Button from '@src/components/styled/Button';
@@ -5,6 +8,7 @@ import Button from '@src/components/styled/Button';
 import {
     CantRedeem,
     Cost,
+    ImageWrapper,
     MissingPoints,
     ProductItemDetails,
     ProductItemName,
@@ -20,7 +24,14 @@ type Props = {
 
 const ProductItem: React.FC<Props> = ({ product, missing, redeeming }) => (
     <StyledProductItem tabIndex={0}>
-        <img src={product.img.url} alt={product.name} />
+        <ImageWrapper>
+            <Image
+                src={product.img.url}
+                alt={product.name}
+                width={252}
+                height={182}
+            />
+        </ImageWrapper>
         <ProductItemDetails>
             <ProductItemName>{product.name}</ProductItemName>
 
