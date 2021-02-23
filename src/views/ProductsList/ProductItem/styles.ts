@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import Button from '@src/components/styled/Button';
 import Flex from '@src/components/styled/Flex';
 import { ifProp, palette } from '@src/utils/styled';
 
@@ -27,13 +26,6 @@ export const RedeemWrapper = styled(Flex)`
     background: rgba(0, 0, 0, 0.6);
     opacity: 0;
     transition: 0.3s ease-in-out;
-
-    ${Button} {
-        background: #ff7d00;
-        color: #fff;
-        font-weight: 600;
-        font-size: 0.875rem;
-    }
 `;
 
 type CostProps = {
