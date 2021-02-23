@@ -30,6 +30,6 @@ module.exports = withPlugins([
         NEXT_PUBLIC_ANALYITICS_ID: isDev ? '' : ''
     },
     images: {
-        domains: ['textcode.me']
+        domains: ['textcode.me', "coding-challenge-api.aerolab.co"]
     }
 })
