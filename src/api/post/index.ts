@@ -9,7 +9,8 @@ export const redeemProduct = (
     baseAxios.post<RedeemProduct>('/redeem', { productId });
 
 type AddMorePoints = { message: string };
+export type AddMorePointsAmount = 1000 | 5000 | 7500;
 export const addMorePoints = (
-    amount: 1000 | 5000 | 7500
+    amount: AddMorePointsAmount
 ): Promise<AxiosResponse<AddMorePoints>> =>
     baseAxios.post<AddMorePoints>('/user/points', { amount });

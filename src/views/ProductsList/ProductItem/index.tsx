@@ -28,11 +28,13 @@ const ProductItem: React.FC<Props> = ({ product, missing, redeeming }) => (
                 <IconCoin /> {product.cost}
             </Cost>
 
-            {missing && (
+            {missing ? (
                 <MissingPoints>
                     You&apos;re missing <IconCoin />
                     {missing}
                 </MissingPoints>
+            ) : (
+                <Button data-product={product._id}>Redeem now</Button>
             )}
         </ProductItemDetails>
 

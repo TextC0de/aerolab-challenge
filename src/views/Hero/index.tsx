@@ -1,20 +1,25 @@
 import Container from '@src/components/styled/Container';
-import Flex from '@src/components/styled/Flex';
 
-import { CategoryHeroTitle, StyledCategoryHero } from './styles';
+import {
+    CategoryHeroTitle,
+    Content,
+    ContrastBg,
+    StyledCategoryHero
+} from './styles';
 
 type Props = {
     category: string;
 };
 
-const CategoryHero: React.FC<Props> = ({ category }) => (
+const Hero: React.FC<Props> = ({ category }) => (
     <StyledCategoryHero>
-        <Flex xs={{ alignEnd: true }}>
+        <ContrastBg />
+        <Content xs={{ alignEnd: true }}>
             <Container>
                 <CategoryHeroTitle>{category}</CategoryHeroTitle>
             </Container>
-        </Flex>
+        </Content>
     </StyledCategoryHero>
 );
 
-export default CategoryHero;
+export default Hero;

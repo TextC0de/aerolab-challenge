@@ -8,15 +8,7 @@ export const StyledProductsList = styled(Grid)`
     list-style: none;
 `;
 
-export const Filter = styled.div`
-    label {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: #4f4f4f;
-        margin-bottom: 0.375rem;
-        display: block;
-    }
-`;
+export const Filter = styled.div``;
 
 export const Filters = styled(Flex)`
     padding-top: 3rem;

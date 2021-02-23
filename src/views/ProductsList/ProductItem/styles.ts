@@ -1,10 +1,22 @@
 import styled, { css } from 'styled-components';
 
+import Button from '@src/components/styled/Button';
 import Flex from '@src/components/styled/Flex';
+import breakpoints from '@src/styles/breakpoints';
 import { ifProp, palette } from '@src/utils/styled';
 
 export const ProductItemDetails = styled.div`
     padding: 0.375rem 0 0;
+
+    ${Button} {
+        margin-top: 1rem;
+        border-radius: 5px;
+        width: 100%;
+
+        @media (min-width: ${breakpoints.md}px) {
+            display: none;
+        }
+    }
 `;
 
 export const ProductItemCategory = styled.span`
@@ -26,6 +38,11 @@ export const RedeemWrapper = styled(Flex)`
     background: rgba(0, 0, 0, 0.6);
     opacity: 0;
     transition: 0.3s ease-in-out;
+    display: none;
+
+    @media (min-width: ${breakpoints.md}px) {
+        display: flex;
+    }
 `;
 
 type CostProps = {

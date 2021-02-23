@@ -16,8 +16,7 @@ const milestones = [
     {
         redeems: 100,
         title: 'Supreme redeemer',
-        description:
-            'Ypu have reached 100 redeems. PD: ¿How did you even got here?'
+        description: 'You have reached 100 redeems. ¿How did you even got here?'
     }
 ];
 

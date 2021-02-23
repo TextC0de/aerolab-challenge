@@ -7,7 +7,9 @@ const fontSize = ({ level }: { level?: number }): number => {
         case 1:
             return 2.5;
         case 2:
-            return 2.25;
+            return 2;
+        case 3:
+            return 1.875;
         default:
             return 2.5;
     }

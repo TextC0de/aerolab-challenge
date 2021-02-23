@@ -5,7 +5,7 @@ import { getProducts } from '@src/api/get';
 import { Product } from '@src/api/types';
 import Seo from '@src/components/Seo';
 import Container from '@src/components/styled/Container';
-import CategoryHero from '@src/views/CategoryHero';
+import Hero from '@src/views/Hero';
 import ProductsList from '@src/views/ProductsList';
 
 type Props = {
@@ -16,7 +16,7 @@ const Home: NextPage<Props> = ({ products }) => (
     <>
         <Seo />
         <main>
-            <CategoryHero category="Electronics" />
+            <Hero category="Electronics" />
             <section>
                 <Container>
                     <ToastProvider>

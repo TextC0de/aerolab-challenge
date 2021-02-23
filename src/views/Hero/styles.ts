@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Flex from '@src/components/styled/Flex';
 
 export const StyledCategoryHero = styled.header`
+    position: relative;
     background-position: bottom right;
     background-size: cover;
     background-color: #15dbff;
@@ -18,6 +19,23 @@ export const StyledCategoryHero = styled.header`
     ${Flex} {
         padding-bottom: 3rem;
     }
+`;
+
+export const ContrastBg = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+`;
+
+export const Content = styled(Flex)`
+    position: relative;
 `;
 
 export const CategoryHeroTitle = styled.h1`

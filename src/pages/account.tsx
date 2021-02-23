@@ -1,31 +1,31 @@
 import { NextPage } from 'next';
 import { useContext } from 'react';
+import { ToastProvider } from 'react-toast-notifications';
 
-import { addMorePoints } from '@src/api/post';
+import ViewLoading from '@src/components/layout/ViewLoading';
 import Seo from '@src/components/Seo';
-import Button from '@src/components/styled/Button';
 import Container from '@src/components/styled/Container';
 import Heading from '@src/components/styled/Heading';
+import P from '@src/components/styled/P';
 import Section from '@src/components/styled/Section';
 import { UserContext } from '@src/context/UserContext';
 import { parseDate } from '@src/utils/common';
 import Achievements from '@src/views/Achievements';
+import PointsAsker from '@src/views/PointsAsker';
 import RedeemHistoryList from '@src/views/RedeemHistoryList';
 
 const Account: NextPage = () => {
-    const { user } = useContext(UserContext);
+    const { state } = useContext(UserContext);
 
-    const getMorePoints = () => {
-        if (process.env.NODE_ENV === 'production') return;
-        addMorePoints(7500)
-            .then(({ data: message }) => {
-                // eslint-disable-next-line no-console
-                console.log(message);
-            })
-            .catch((e) => {
-                console.error(e);
-            });
-    };
+    if (state.loading) {
+        return <ViewLoading fullPage />;
+    }
+
+    if (state.error || !state.user) {
+        return <ViewLoading fullPage />;
+    }
+
+    const { user } = state;
 
     return (
         <>
@@ -33,12 +33,15 @@ const Account: NextPage = () => {
             <main>
                 <Section>
                     <Container>
-                        <Heading>My personal data</Heading>
-                        <p>Name: {user?.name}</p>
-                        <p>
+                        <Heading>{user.name}</Heading>
+                        <P>
                             Member since:{' '}
-                            {user?.createDate && parseDate(user?.createDate)}
-                        </p>
+                            {user.createDate && parseDate(user.createDate)}
+                        </P>
+                        <P>Points: {user.points}</P>
+                        <ToastProvider>
+                            <PointsAsker />
+                        </ToastProvider>
                     </Container>
                 </Section>
 
@@ -59,20 +62,6 @@ const Account: NextPage = () => {
                         <RedeemHistoryList />
                     </Container>
                 </Section>
-
-                {process.env.NODE_ENV === 'development' && (
-                    <Container>
-                        <Button
-                            style={{
-                                border: '1px solid #333',
-                                marginBottom: '3rem'
-                            }}
-                            onClick={getMorePoints}
-                        >
-                            Pedir más puntos
-                        </Button>
-                    </Container>
-                )}
             </main>
         </>
     );

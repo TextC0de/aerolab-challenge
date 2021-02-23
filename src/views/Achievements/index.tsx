@@ -11,7 +11,13 @@ import {
 import getUserAchievements from './util';
 
 const Achievements: React.FC = () => {
-    const { user } = useContext(UserContext);
+    const {
+        state: { user }
+    } = useContext(UserContext);
+
+    if (!user) {
+        return null;
+    }
 
     return (
         <StyledAchievements

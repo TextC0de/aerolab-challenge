@@ -1,12 +1,16 @@
 import 'react-dropdown/style.css';
 
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ReactDropdown, { Option } from 'react-dropdown';
 import { useToasts } from 'react-toast-notifications';
 
 import { baseAxios } from '@src/api/constants';
 import { Product } from '@src/api/types';
 import IconArrowChevron from '@src/components/icons/ArrowChevron';
+import ViewError from '@src/components/layout/ViewError';
+import ViewLoading from '@src/components/layout/ViewLoading';
+import Label from '@src/components/styled/Label';
+import P from '@src/components/styled/P';
 import { UserContext } from '@src/context/UserContext';
 
 import { sorters } from './constants';
@@ -29,7 +33,9 @@ type Props = {
 };
 
 const ProductsList: React.FC<Props> = ({ products }) => {
-    const { user, subtractPoints, fetchUser } = useContext(UserContext);
+    const { state, subtractPoints, updateRedeemHistory } = useContext(
+        UserContext
+    );
     const [sorting, setSorting] = useState<string>(sorters[0].value);
     const [filter, setFilter] = useState<string>('All');
     const [redeeming, setRedeeming] = useState<boolean>(false);
@@ -55,10 +61,10 @@ const ProductsList: React.FC<Props> = ({ products }) => {
 
         baseAxios
             .post('/redeem', {
-                productId: product._id
+                productId: id
             })
             .then(({ data: { message } }) => {
-                fetchUser();
+                updateRedeemHistory();
                 subtractPoints(product.cost);
                 addToast(message, { appearance: 'success' });
             })
@@ -83,6 +89,22 @@ const ProductsList: React.FC<Props> = ({ products }) => {
         document.getElementById('productsFilters')?.scrollIntoView();
     }, [page]);
 
+    if (products.length === 0) {
+        return <P>We couldn&apos;t find any products</P>;
+    }
+
+    if (state.loading) {
+        return <ViewLoading />;
+    }
+
+    if (state.error || !state.user) {
+        return (
+            <ViewError title="Unauthorized" message="You must be logged in" />
+        );
+    }
+
+    const { user } = state;
+
     return (
         <>
             <Filters
@@ -91,7 +113,7 @@ const ProductsList: React.FC<Props> = ({ products }) => {
                 sm={{ row: true }}
             >
                 <Filter>
-                    <label>Category:</label>
+                    <Label>Category:</Label>
                     <ReactDropdown
                         options={['All'].concat(
                             [
@@ -108,7 +130,7 @@ const ProductsList: React.FC<Props> = ({ products }) => {
                     />
                 </Filter>
                 <Filter>
-                    <label>Sort by:</label>
+                    <Label>Sort by:</Label>
                     <ReactDropdown
                         options={sorters}
                         onChange={({ value }: Option) => setSorting(value)}
@@ -125,7 +147,7 @@ const ProductsList: React.FC<Props> = ({ products }) => {
                 xl={{ columns: 4 }}
             >
                 {pageProducts.map((product) => {
-                    const missing = (user?.points || 0) - product.cost;
+                    const missing = user.points - product.cost;
                     return (
                         <ProductItem
                             key={product._id}

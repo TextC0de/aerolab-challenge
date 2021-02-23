@@ -7,6 +7,9 @@ export const StyledHeader = styled.header`
     padding: 0.875rem 0;
     z-index: 10;
     background: #fff;
+    position: fixed;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #dadada;
 
     .AerolabLogo {
         width: 1.5rem;
