@@ -19,6 +19,11 @@ export const ProductItemDetails = styled.div`
     }
 `;
 
+export const ImageWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
 export const ProductItemCategory = styled.span`
     font-size: 0.875rem;
     color: #a3a3a3;
