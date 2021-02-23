@@ -6,7 +6,9 @@ export const StyledCategoryHero = styled.header`
     background-position: bottom right;
     background-size: cover;
     background-color: #15dbff;
-    background-image: url('/header-x1.png');
+    background-image: ${process.env.NODE_ENV === 'production'
+        ? "url('/_public-static/header-x1.png')"
+        : "url('/header-x1.png')"};
 
     &,
     ${Flex} {
