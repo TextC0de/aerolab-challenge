@@ -44,9 +44,15 @@ const ProductsList: React.FC<Props> = ({ products }) => {
     const { addToast } = useToasts();
 
     const onClick = (e: React.MouseEvent<HTMLElement>) => {
-        if ((e.target as HTMLElement).nodeName !== 'BUTTON' && !redeeming)
-            return;
+        if ((e.target as HTMLElement).nodeName !== 'BUTTON') return;
         e.preventDefault();
+
+        if (redeeming) {
+            addToast('You must wait till the actual redeeming process ends', {
+                appearance: 'warning'
+            });
+            return;
+        }
 
         const id = (e.target as HTMLButtonElement).attributes.getNamedItem(
             'data-product'

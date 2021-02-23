@@ -39,6 +39,7 @@ const PointsAsker: React.FC = () => {
             addToast('Wait till the current asking process ends', {
                 appearance: 'warning'
             });
+            return;
         }
 
         if ((e.target as HTMLElement).nodeName !== 'LI') return;
