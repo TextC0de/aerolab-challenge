@@ -162,7 +162,7 @@ const ProductsList: React.FC<Props> = ({ products }) => {
             <Pagination xs={{ justifyEnd: true, alignCenter: true }}>
                 <PaginationCount>
                     {(page - 1) * productsPerPage + pageProducts.length} of{' '}
-                    {products.length}
+                    {filteredProducts.length}
                 </PaginationCount>
 
                 <PaginationNavigation>
