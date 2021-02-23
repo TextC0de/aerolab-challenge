@@ -25,7 +25,7 @@ export const Filters = styled(Flex)`
 
 export const PaginationArrow = styled.span`
     cursor: pointer;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(43, 43, 43);
     border-radius: 50%;
     display: ${({ onClick }) => (!onClick ? 'none' : 'inline-flex')};
     width: 2rem;
