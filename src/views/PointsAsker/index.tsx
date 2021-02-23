@@ -59,7 +59,7 @@ const PointsAsker: React.FC = () => {
 
     return (
         <StyledPointsAsker onClick={onClick}>
-            <Label>Ask for more points (for testing purposes)</Label>
+            <Label>Ask for more points</Label>
             <Flex xs={{ column: true }} sm={{ row: true }} as="ol">
                 {options.map((number) => {
                     return (
