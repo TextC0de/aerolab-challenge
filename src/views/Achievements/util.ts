@@ -45,7 +45,7 @@ const getUserAchievements = (user: User | undefined): Achievement[] => {
                 achievements.push({
                     key: `${milestone.redeems}-redeems`,
                     title: `${milestone.title} - ${parseDate(
-                        user.redeemHistory[4].createDate
+                        user.redeemHistory[milestone.redeems - 1].createDate
                     )}`,
                     description: milestone.description
                 });
