@@ -31,6 +31,9 @@ const PointsAsker: React.FC = () => {
                     "We're sorry, something went wrong while depositing the points to your account",
                     { appearance: 'success' }
                 );
+            })
+            .finally(() => {
+                setAsking(false);
             });
     };
 
@@ -66,9 +69,11 @@ const PointsAsker: React.FC = () => {
                     return (
                         <PointsAskerItem
                             data-value={number}
-                            onKeyPress={(e) =>
-                                (e.target as HTMLLIElement).click()
-                            }
+                            onKeyPress={(e) => {
+                                if (e.key === 'Enter') {
+                                    (e.target as HTMLLIElement).click();
+                                }
+                            }}
                             key={number}
                             tabIndex={0}
                         >
